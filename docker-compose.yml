@@ -1,0 +1,19 @@
+services:
+
+  streamlit:
+    build: .
+    container_name: driver-station-streamlit
+    ports:
+    - "8000:8000"
+    volumes: 
+    - .:/app
+    command: streamlit run app.py --server.address=0.0.0.0
+
+  jupiter:
+    build: .
+    container_name: driver-station-jupiter
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+    command: jupiter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
