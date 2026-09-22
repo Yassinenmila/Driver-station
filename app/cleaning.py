@@ -83,7 +83,7 @@ owner={
 
 }
 
-# df['owner']=df['owner'].map(owner)
+df['owner']=df['owner'].map(owner)
 
 # print(df['owner'].isna().sum())
 
