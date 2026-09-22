@@ -1,5 +1,4 @@
 services:
-
   streamlit:
     build: .
     container_name: driver-station-streamlit
