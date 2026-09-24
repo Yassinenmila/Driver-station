@@ -87,9 +87,9 @@ owner={
 
 df['owner']=df['owner'].map(owner)
 
-df.to_csv('data/cleaned_cars.csv')
+df.to_csv('data/cleaned_cars.csv' ,index=False)
 # print(df['owner'].isna().sum())
 
-# x = df.drop('selling_price',axis=1)
-# x= x.drop('name',axis=1)
-# y=df['selling_price']
+x = df.drop('selling_price',axis=1)
+x= x.drop('name',axis=1)
+y=df['selling_price']
