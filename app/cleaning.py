@@ -1,5 +1,6 @@
 from .explore import df 
 import pandas as pd
+
 char= [
     'fuel',
     'seller_type',
@@ -22,6 +23,7 @@ for n in num:
 
 
 df = df.drop_duplicates()
+
 
 # print('year = ', (df["year"]<1900).sum())
 # print('km = ', (df['km_driven']<0).sum())
@@ -74,20 +76,20 @@ def outlier(c):
 
 df = pd.get_dummies(df,columns=['fuel','seller_type','transmission'],dtype=int)
 
+
 owner={
     'First Owner':1,
     'Second Owner':2,
     'Third Owner':3,
     'Fourth & Above Owner':4,
     'Test Drive Car':0
-
 }
 
 df['owner']=df['owner'].map(owner)
 
+df.to_csv('data/cleaned_cars.csv')
 # print(df['owner'].isna().sum())
 
-x = df.drop('selling_price',axis=1)
-x= x.drop('name',axis=1)
-y=df['selling_price']
-
+# x = df.drop('selling_price',axis=1)
+# x= x.drop('name',axis=1)
+# y=df['selling_price']
