@@ -73,8 +73,11 @@ def outlier(c):
 
 # print("année min :", df["year"].min())
 # print("année max :", df["year"].max())
+df['brand']=df['name'].str.split().str[0]
+print(df['brand'])
 
-df = pd.get_dummies(df,columns=['fuel','seller_type','transmission'],dtype=int)
+df = pd.get_dummies(df,columns=['fuel','seller_type','transmission','brand'],dtype=int)
+
 
 
 owner={
@@ -90,6 +93,6 @@ df['owner']=df['owner'].map(owner)
 df.to_csv('data/cleaned_cars.csv' ,index=False)
 # print(df['owner'].isna().sum())
 
-x = df.drop('selling_price',axis=1)
-x= x.drop('name',axis=1)
-y=df['selling_price']
+# x = df.drop(['selling_price','name'],axis=1)
+# y=df['selling_price']
+print(df.columns)
