@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('../data/car-price.csv')
+df = pd.read_csv('data/car-price.csv')
 
 
 char= [
@@ -98,3 +98,4 @@ df.to_csv('data/cleaned_cars.csv' ,index=False)
 # # x = df.drop(['selling_price','name'],axis=1)
 # # y=df['selling_price']
 # print(df.columns)
+
