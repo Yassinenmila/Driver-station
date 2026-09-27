@@ -1,5 +1,7 @@
-from .explore import df 
 import pandas as pd
+
+df = pd.read_csv('../data/car-price.csv')
+
 
 char= [
     'fuel',
@@ -76,23 +78,23 @@ def outlier(c):
 df['brand']=df['name'].str.split().str[0]
 print(df['brand'])
 
-df = pd.get_dummies(df,columns=['fuel','seller_type','transmission','brand'],dtype=int)
-
-
-
-owner={
-    'First Owner':1,
-    'Second Owner':2,
-    'Third Owner':3,
-    'Fourth & Above Owner':4,
-    'Test Drive Car':0
-}
-
-df['owner']=df['owner'].map(owner)
-
 df.to_csv('data/cleaned_cars.csv' ,index=False)
-# print(df['owner'].isna().sum())
 
-# x = df.drop(['selling_price','name'],axis=1)
-# y=df['selling_price']
-print(df.columns)
+
+
+
+# owner={
+#     'First Owner':1,
+#     'Second Owner':2,
+#     'Third Owner':3,
+#     'Fourth & Above Owner':4,
+#     'Test Drive Car':0
+# }
+
+# df['owner']=df['owner'].map(owner)
+
+# # print(df['owner'].isna().sum())
+
+# # x = df.drop(['selling_price','name'],axis=1)
+# # y=df['selling_price']
+# print(df.columns)
