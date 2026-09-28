@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import joblib
 
+df = pd.read_csv('data/cleaned_cars.csv')
+
 
 st.set_page_config(
     page_title="Driver Station",
@@ -21,37 +23,7 @@ st.header("Informations de la voiture")
 
 brand = st.selectbox(
     "Marque",
-    [
-        "Ambassador",
-        "Audi",
-        "BMW",
-        "Chevrolet",
-        "Daewoo",
-        "Datsun",
-        "Fiat",
-        "Force",
-        "Ford",
-        "Honda",
-        "Hyundai",
-        "Isuzu",
-        "Jaguar",
-        "Jeep",
-        "Kia",
-        "Land",
-        "MG",
-        "Mahindra",
-        "Maruti",
-        "Mercedes-Benz",
-        "Mitsubishi",
-        "Nissan",
-        "OpelCorsa",
-        "Renault",
-        "Skoda",
-        "Tata",
-        "Toyota",
-        "Volkswagen",
-        "Volvo"
-    ]
+    df["brand"].unique().tolist()
 )
 
 year = st.number_input(
@@ -70,56 +42,36 @@ km_driven = st.number_input(
 
 
 owner = st.selectbox(
-    "Propriétaire",
-    [
-        "First Owner",
-        "Second Owner",
-        "Third Owner",
-        "Fourth & Above Owner",
-        "Test Drive Car"
-    ]
+    "Propriétaire",df["owner"].unique().tolist()
 )
 
 
 fuel = st.selectbox(
-    "Carburant",
-    [
-        "CNG",
-        "Diesel",
-        "Electric",
-        "LPG",
-        "Petrol"
-    ]
+    "Carburant",df["fuel"].unique().tolist()
+    
 )
 
 
 seller_type = st.selectbox(
     "Type de vendeur",
-    [
-        "Dealer",
-        "Individual",
-        "Trustmark Dealer"
-    ]
+    df["seller_type"].unique().tolist()
 )
 
 
 transmission = st.selectbox(
     "Transmission",
-    [
-        "Automatic",
-        "Manual"
-    ]
+    df["transmission"].unique().tolist()
 )
 
 
-# Création des données
 data = pd.DataFrame([{
     "year": year,
     "km_driven": km_driven,
     "owner": owner,
     "fuel": fuel,
     "seller_type": seller_type,
-    "transmission": transmission
+    "transmission": transmission,
+    "brand":brand
 }])
 
 
