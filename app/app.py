@@ -3,7 +3,6 @@ import pandas as pd
 import joblib
 
 
-# Configuration
 st.set_page_config(
     page_title="Driver Station",
     page_icon="🚗",
@@ -14,11 +13,9 @@ st.title("🚗 Driver Station")
 st.write("Prédiction du prix d'une voiture")
 
 
-# Charger le modèle
-model = joblib.load("model/random-forest-model.pkl")
+model = joblib.load("model/model.pkl")
 
 
-# Formulaire
 st.header("Informations de la voiture")
 
 

@@ -78,20 +78,21 @@ def outlier(c):
 df['brand']=df['name'].str.split().str[0]
 print(df['brand'])
 
+
+
+
+
+owner={
+    'First Owner':1,
+    'Second Owner':2,
+    'Third Owner':3,
+    'Fourth & Above Owner':4,
+    'Test Drive Car':0
+}
+
+df['owner']=df['owner'].map(owner)
+
 df.to_csv('data/cleaned_cars.csv' ,index=False)
-
-
-
-
-# owner={
-#     'First Owner':1,
-#     'Second Owner':2,
-#     'Third Owner':3,
-#     'Fourth & Above Owner':4,
-#     'Test Drive Car':0
-# }
-
-# df['owner']=df['owner'].map(owner)
 
 # # print(df['owner'].isna().sum())
 
